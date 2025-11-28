@@ -22,7 +22,14 @@ app.post('/api/gamescore', async (req, res) =>{
     const {playerName, score, totalHits,date, difficulty} = req.body;
 
     try{
-        const game = new Game ({playerName, score, totalHits, date, difficulty});   
+        const game = new Game ({
+            playerName,
+            score,
+            totalHits,
+            date,
+            difficulty: difficulty || 'normal',
+        
+        });   
         await game.save();
         res.status(201).json({message : "Game Saved"});
     }catch (err){
