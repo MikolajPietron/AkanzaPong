@@ -5,7 +5,7 @@ const gameSchema = new mongoose.Schema({
   score: { type: Number, required: true },
   totalHits: { type: Number, required: true },
   date: { type: Date, default: Date.now },
-  difficulty: { type: String, required: true } 
+  difficulty: { type: String, default: 'normal' } 
 });
 
 module.exports = mongoose.model('Game', gameSchema);
