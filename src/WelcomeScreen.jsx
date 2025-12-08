@@ -1,6 +1,5 @@
 import React, { useState, useRef, use } from 'react';
-import mypongGif from './assets/mypongWelcome.gif';
-import WelcomeScreenBackground from './assets/WelcomeScreenBackground.png';
+
 import './WelcomeScreen.css';
 import { useNavigate } from 'react-router-dom';
 import Modal from './Modal.jsx';
@@ -8,14 +7,10 @@ import BitSong from './assets/gameSong.mp3';
 import ChillSong from './assets/ChillLofiSong.mp3';
 import RockSong from './assets/RockSong.mp3';
 import PingPong from './assets/pingPongSound.mp3';
-import BackgroundPaddles from './assets/backgroundPaddles.png';
-import PasekDoRozdzielania from './assets/pasekDoRozdzielenia.png';
+
 import Logo from './assets/AtsAkanzaLogo.png';
 import Icon from "@mdi/react";
-import CurrentUser from './assets/userIconBlackBg.png';
-import LeaderBoard from './LeaderBoard.jsx';
-import HardPlayer from './assets/HardPlayer.png';
-import EasyPlayer from './assets/EasyPlayer.png';
+
 import bluePhoto from "./assets/welcomeScreenPhoto_blue.webp"
 
 
@@ -58,7 +53,7 @@ const difficultyNames = {
     pauseAll();
      setFadeOut(true);
     setTimeout(() => {
-      console.log("Navigating with difficulty:", selectedDifficulty);
+      console.log("nav z game difficulty:", selectedDifficulty);
       navigation('/game', {state: {selectedMusic, selectedPlayer, currentUserName, selectedDifficulty, selectedOpponent}});
     }, 1000);
 
@@ -325,7 +320,7 @@ const toggleSettings = () =>{
   <div className="modalOverlay" onClick={toggleOponentModal}>
     <div
       className={`oponentContainer ${showOponent ? 'show' : ''}`}
-      onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+      onClick={(e) => e.stopPropagation()} 
     >
       <div className='HardPlayer'>
         <div className='HardPlayerLeft' onClick={() => {

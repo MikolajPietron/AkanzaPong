@@ -338,34 +338,33 @@ const defaultAiImageSrc = Ai;
       const containerRect = container.getBoundingClientRect();
       const ballRect = ballElement.getBoundingClientRect();
 
-      // Bounce off top & bottom
-      // Bounce off top & bottom
+      
 if (y <= 5) {
   vy = -vy;
-  y = 5; // <--- Add this line to snap the ball to the top border
+  y = 5;
   playPingSound();
 } else if (y + ballRect.height >= containerRect.height - 15) {
   vy = -vy;
-  y = containerRect.height - 15 - ballRect.height; // <--- Add this line to snap the ball to the bottom border
+  y = containerRect.height - 15 - ballRect.height; 
   playPingSound();
 }
 
-      // Bounce off left & right
+      
       if (x <= 0) {
-  const newBall = resetBall(1); // send ball to the right
+  const newBall = resetBall(1); 
   setPlayer2Points(prev => prev + 1);
   ballRef.current = newBall;
   return newBall;
 }
 
 if (x + ballRect.width >= containerRect.width) {
-  const newBall = resetBall(-1); // send ball to the left
+  const newBall = resetBall(-1); 
   setPlayer1Points(prev => prev + 1);
   ballRef.current = newBall;
   return newBall;
 }
 
-      // Collision with left Paddle
+    
   if (isColliding(ballRect, paddleLeftRect) && vx < 0) {
     vx = Math.abs(vx) + 1; 
     
@@ -381,31 +380,31 @@ if (x + ballRect.width >= containerRect.width) {
 
 
   if (isColliding(ballRect, paddleRightRect) && vx > 0) {
-  // Reflect ball horizontally
+  
   vx = -Math.abs(vx) - 1;
   playPingSound();
   setTotalHits(prev => prev + 1);
 
-  // Calculate paddle center and ball center Y positions
+  
   const paddleCenterY = paddleRightRect.top + paddleRightRect.height / 2;
   const ballCenterY = ballRect.top + ballRect.height / 2;
 
-  // Calculate how far from the center the ball hit the paddle (range approx -1 to 1)
+ 
   const relativeIntersectY = (ballCenterY - paddleCenterY) / (paddleRightRect.height / 2);
 
-  // Max bounce angle in radians (about 60 degrees)
+  
   const maxBounceAngle = (60 * Math.PI) / 180;
 
-  // Calculate the bounce angle based on where it hit the paddle
+  
   const bounceAngle = relativeIntersectY * maxBounceAngle;
 
-  // Calculate new speeds using the angle and current speed magnitude
+  
   const speed = Math.sqrt(vx * vx + vy * vy);
 
-  vx = -Math.abs(speed * Math.cos(bounceAngle)); // always going left after hitting right paddle
+  vx = -Math.abs(speed * Math.cos(bounceAngle)); 
   vy = speed * Math.sin(bounceAngle);
 
-  // Optionally add some paddle direction spin effect if you want
+  
   if (paddleDirection === 'down') {
     vy += 3 * speedFactor;
   } else if (paddleDirection === 'up') {
@@ -449,7 +448,7 @@ if (x + ballRect.width >= containerRect.width) {
   }
 }, [Player1Points, Player2Points]);
 
-//USEFFECT DO USTAWIENIA PILKI NA SRODKU ZAWSZE ----------------------------------------------------------------------------- USEFFECT DO USTAWIENIA PILKI NA SRODKU ZAWSZE
+//USEFFECT DO USTAWIENIA PILKI NA SRODKU 
 useEffect(() => {
   const container = pongContainerRef.current;
   if (container) {
@@ -467,7 +466,7 @@ useEffect(() => {
   }
 }, []); 
 
-//USEEFFECT DO USTAWIENIA PALETEK NA SRODKU OSI ZAWSZE ---------------------------------------------------------------------- USEEFFECT DO USTAWIENIA PALETEK NA SRODKU OSI ZAWSZE 
+//USEEFFECT DO USTAWIENIA PALETEK NA SRODKU
 useEffect(() => {
   const container = pongContainerRef.current;
   if (container) {
@@ -571,33 +570,30 @@ useEffect(() => {
 };
 const isMobile = window.innerWidth <= 550;
 const handleUnpause = () => {
-    // If a countdown is already running, do nothing
+    
     if (countdown > 0) return;
 
-    // 1. Initiate the visual countdown and transition state
+    
     setCountdown(3);
     setIsCountingDown(true);
 
-    // Ensure the pause menu stays visible (pauseShown = true) 
-    // and the game logic remains frozen (gamePaused = true) initially.
     
-    // Set up the countdown interval, ticking every 1000ms (1 second)
     const countdownInterval = setInterval(() => {
         setCountdown(prev => {
             if (prev === 1) {
-                // When countdown hits 1, it's time to UNPAUSE everything
+                
                 clearInterval(countdownInterval);
                 
-                // 2. CLOSE THE MODAL and UNFREEZE THE GAME LOGIC
+                
                 setPauseShown(false); 
                 setGamePaused(false);
-                setIsCountingDown(false); // Countdown is over
+                setIsCountingDown(false); 
 
                 return 0;
             }
             return prev - 1;
         });
-    }, 1000); // 1000ms = 1 second interval
+    }, 1000); // 1 sek
 };
 
 

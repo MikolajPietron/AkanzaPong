@@ -4,11 +4,11 @@ import "./LeaderBoard.css";
 import { BACKEND_BASE_URL } from './apiConfig.js'; 
 
 function LeaderBoard() {
-  const [leaderboardData, setLeaderboardData] = useState([]); // ✅ Initialize as []
+  const [leaderboardData, setLeaderboardData] = useState([]); 
   const [isShown, setIsShown] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`${BACKEND_BASE_URL}/api/getgamescore`) // ✅ Use HTTP, not HTTPS
+    fetch(`${BACKEND_BASE_URL}/api/getgamescore`) 
       .then((res) => res.json())
       .then((data) => setLeaderboardData(data))
       .catch((err) =>
