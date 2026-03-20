@@ -1,0 +1,1564 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+@font-face {
+    font-family: 'kollektif';
+    src: url('assets/fonts/Kollektif-Bold.ttf') format(truetype);
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'norwester';
+  src: url('assets//fonts/norwester.otf');
+}
+@font-face {
+  font-family: 'glober';
+  src: url('assets/fonts/Glober\ SemiBold\ Free.otf');
+}
+
+
+body {
+  
+  
+  
+  
+}
+.backgroundPaddles{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  
+  opacity: 20%;
+}
+
+.welcomeScreen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 1000ms ease;
+  background-color: #0517C9;
+  
+  background-position-x: 70%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  
+}
+.welcomeScreen.blurred{
+  filter: blur(6px);
+}
+.welcomeScreen.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Prevent clicks during fade */
+}
+.dashed{
+  border: 2px dashed white;
+  height: 100%;
+  
+}
+
+
+
+.welcomeScreen a.game:hover {
+  /* background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+  
+  border-radius: 30px; */
+  background-color: blue;
+  color: white;
+  border: 4px solid white;
+  border-radius: 20px;
+}
+
+.welcomeScreen a.game{
+  position: relative;
+  display: flex;
+  padding: 30px;
+  
+  color: blue;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease, border-radius 0.3s ease;
+  letter-spacing: 10px;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 30px;
+  width: 500px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'kollektif', 'sans-serif';
+  border: 4px solid #ffffff;
+  font-size: 40px;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255,1);
+
+}
+
+.leaderboardButton:hover{
+  transform: scale(1.1);
+}
+
+
+
+.welcomeScreen a.rules:hover  {
+  
+  transform: scale(1.1);
+  
+  
+}
+.button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+}
+.button2{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    
+}
+.musicButtons{
+  
+  opacity: 0;
+  position: relative;
+  margin-top: 40px;
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  column-gap: 25px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  font-family: 'pixelfont', 'sans-serif';
+ 
+}
+.musicButtons.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.musicButtons h1 {
+  grid-column: 1 / -1; 
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  color: white;
+  
+  
+}
+.musicButtons input[type = "radio"] {
+  width: 4vw;
+  height: 8vh;
+  transition: border-radius 0.3s ease, border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  z-index: 100;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 50px;  /* ensures they never get too tiny */
+  min-height: 50px;
+  aspect-ratio: 1/1; 
+}
+.musicButtons input[type = "radio"]:hover {
+  border-radius: 50px;
+}
+.musicButtons input[type = "radio"]:checked {
+  
+  border-radius: 50px;
+  
+  
+}
+.bitcontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.biticon{
+  position: absolute;
+  color: rgb(255, 255, 255);
+  width: 60%;
+  height: 60%;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  
+  
+}
+
+
+.chillcontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chillicon{
+  position: absolute;
+  color: rgb(255, 252, 252);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  width: 60%;
+  height: 60%;
+}
+.rockcontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rockicon{
+  position: absolute;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  width: 60%;
+  height: 60%;
+}
+.pingcontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pingicon{
+  position: absolute;
+  color: rgb(255, 254, 254);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  width: 60%;
+  height: 60%;
+}
+
+
+.logo{
+  max-width: 150px;   /* or whatever */
+  height: auto;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  
+}
+.container{
+  
+    position: fixed;
+    align-self: center;
+    height: fit-content;
+    width: fit-content;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%,-50%);
+    max-width: 500px;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    
+    gap: 10px;
+    
+    
+    
+    bottom: 15vh;
+}
+
+.choosePlayer {
+  position: fixed;
+  display: flex;
+  left: 50%;
+  top: 50%;
+  z-index: 1000;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  opacity: 0;
+  height: 75vh;
+  width: 40vw;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: blue;
+  color: white;
+  
+  
+}
+.choosePlayer.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.HeroSelection{
+  width: 100%;
+  height: 100%;
+  
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  
+  column-gap: 5px;
+  padding-top: 20px;
+  
+  
+}
+.WybierzZawodnika{
+  font-size: 3vw;
+  font-family: 'kollektif';
+  position: relative;
+  color: blue;
+}
+.WybierzZawodnikaContainer{
+  position: relative;
+  display: flex;
+  height: 17vh;
+  width: 20vw;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* .HeroSelection button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.HeroSelection button:hover::after {
+  transform: rotate(25deg) translateX(100%);
+} */
+
+
+.oponentContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100000;
+  transform: translate(-50%,-50%);
+  height: 45vh;
+  background-color: #0517C9;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+ border: 2px solid rgb(255, 255, 255);
+ border-radius: 20px;
+ padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+}
+.HardPlayer{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  
+  padding: 20px;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+  
+  
+}
+.HardButton{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 7vh;
+  width: 13vw;
+  font-size: 1.6vw;
+  color: rgb(255, 255, 255);
+  border: 2px solid white;
+  border-radius: 15px;
+  background-color: #0517C9;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.HardPlayerImg{
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+.HardPlayerLeft{
+  padding: 10px;
+ 
+ height: 33%;
+ 
+
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  place-items: center;
+  transition: all 0.3s ease;
+}
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.HardPlayerLeft:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.HardPlayerRight:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.spacerWelcomeScreen{
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+.HardPlayerRight{
+  padding: 10px;
+ transition: all 0.3s ease;
+ height: 33%;
+ 
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  place-items: center;
+  
+}
+.EasyPlayer{
+  flex: 1;
+  position: relative;
+  
+  display: flex;
+  flex-direction: row;
+}
+.EasyButton{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 7vh;
+  width: 13vw;
+  font-size: 1.6vw;
+  color: rgb(255, 255, 255);
+  border: 2px solid white;
+  border-radius: 15px;
+  background-color: #0517C9;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.NormalButton{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 7vh;
+  width: 13vw;
+  font-size: 1.6vw;
+  color: rgb(255, 255, 255);
+  border: 2px solid white;
+  border-radius: 15px;
+  background-color: #0517C9;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.NormalPlayerImg{
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+.NormalPlayerMiddle{
+  padding: 10px;
+ transition: all 0.3s ease;
+ height: 33%;
+ 
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction:row ;
+  gap: 20px;
+  place-items: center;
+}
+.NormalPlayerMiddle:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.EasyPlayerImg{
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.oponentContainer.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nataliaPartyka {
+  
+  background-color: transparent;
+  width: 50%;
+  
+  height: 20vh;
+  pointer-events: none;
+  border-radius: 15px;
+  background-color: white;
+  transition: border-color 0.3s ease;
+  background-image: url("./assets/NataliaPartyka.jpeg");
+  background-position: center 30%;
+  border: 2px solid white;
+  cursor: pointer;
+  background-size: cover;
+  
+}
+.andrzejGrubba {
+  background-color: transparent;
+  width: 50%;
+  height: 20vh;
+  pointer-events: none;
+  border-radius: 15px;
+  border: 2px solid white;
+  background-color: white;
+  transition: border-color 0.3s ease;
+  
+  background-position: center 30%;
+  
+  cursor: pointer;
+  background-size: cover;
+  background-image: url("./assets/AndrzejGrubba.jpg");
+  
+}
+.currentUser{
+  background-color: transparent;
+  width: 50%;
+  height: 20vh;
+  
+  pointer-events: none;
+  border-radius: 15px;
+  background-color: #0517C9;
+  transition: border-color 0.3s ease;
+  border: 2px solid white;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: 4.5vw;
+  background-image: url('./assets/NowyZawodnik.svg');
+  
+}
+.currentUserText{
+   display: flex;
+  width: 100%;
+  
+  height: 4vh;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif';
+  font-size: 1.5vw;
+  
+
+  justify-content: center;
+  align-items: center;
+}
+.currentUserTextInput{
+  height: 100%;
+  width: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif';
+  font-size: 1.3vw;
+  border-radius: 10px;
+  padding-left: 10px;
+  justify-content: center;
+  align-items: center;
+  max-lines: 2;
+  text-align: center;
+  
+}
+
+.currentUserTextInput::placeholder{
+  text-align: center;
+  color: white;
+}
+
+.grubbaContainer{
+  position: relative;
+  display: flex;
+  width: 95%;
+  border-bottom: 2px solid white;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  flex-direction: row;
+  text-align: center;
+  gap: 0px;
+  
+  
+}
+.currentUserContainer{
+  position: relative;
+  display: flex;
+  width: 95%;
+  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 20px;
+  flex-direction: row;
+  
+  text-align: center;
+  gap: 0px;
+  
+}
+
+.partykaContainer{
+  position: relative;
+  display: flex;
+  width: 95%;
+ border-bottom: 2px solid white;
+  justify-content: center;
+  align-items: flex-start;
+   
+  padding:20px;
+  flex-direction: row;
+  text-align: center;
+  gap: 0px;
+  
+}
+.partykaText{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif';
+  font-size: 1.5vw;
+  
+  justify-content: center;
+  align-items: center;
+  
+  
+  
+}
+.grubbaText{
+    display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif';
+  font-size: 1.5vw;
+  
+  justify-content: center;
+  align-items: center;
+}
+.grubbaButton{
+ position: absolute;
+  left: 66%;
+  top: 60%;
+  transform: translate(-50%,-50%);
+  width: 40%;
+  height: 6vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  font-weight: bolder;
+  border: 2px solid white;
+  color: blue;
+  transition: all 0.3s ease;
+  padding: 5px;
+  font-size: 1.5vw;
+  
+  cursor: pointer;
+}
+
+.partykaButton{
+  position: absolute;
+  left: 66%;
+  top: 60%;
+  transform: translate(-50%,-50%);
+  width: 40%;
+  height: 6vh;
+  border: 2px solid white;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  font-weight: bolder;
+  border: 2px solid white;
+  color: blue;
+  
+  padding: 5px;
+  font-size: 1.5vw;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  
+  
+}
+.partykaButton:hover{
+  background-color: #0517C9;
+  color: white;
+}
+.grubbaButton:hover{
+  background-color: #0517C9;
+  color: white;
+}
+.currentUserButton:hover{
+  background-color: #0517C9;
+  color: white;
+}
+.settings{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  gap: 0px;
+  font-weight: lighter;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  flex-direction: row;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  
+
+}
+.settingsButton{
+  background-color: transparent;
+  color: blue;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  place-items: center;
+  font-size: 1vw;
+  display: flex;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Kollektif";
+  transition: all 0.3s ease;
+
+
+}
+.settings:hover{
+  transform: scale(1.1);
+}
+
+.currentUserButton{
+  position: absolute;
+  left: 66%;
+  top: 60%;
+  transform: translate(-50%,-50%);
+  width: 40%;
+  height: 6vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  font-weight: bolder;
+  border: 2px solid white;
+  color: blue;
+  transition: all 0.3s ease;
+  padding: 5px;
+  font-size: 1.5vw;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+ 
+  
+  
+}
+
+
+
+
+
+.containerForTwo{
+  opacity: 0;
+  position: fixed;
+  flex-direction: column;
+  top: 100px;
+  height: 20vh;
+  width: 8vw;
+  padding: 20px;
+  border-radius: 15px;
+  right: 10px;
+  padding-top: 0;
+  border: 2px solid rgb(255, 255, 255);
+  transition: all 0.3s ease;
+  display: flex;
+  
+  
+}
+.containerForTwo.show{
+  opacity: 1;
+}
+.playerIconContainer,
+.showSoundsContainer,
+.showOponent {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: fit-content;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid white;
+  transition: all 0.3s ease;
+  
+  
+}
+.bluePhotoContainer{
+  position: fixed;
+  left: 50%;
+  
+  top: 45%;
+  border-radius: 15px;
+  transform: translate(-50%,-50%);
+  height: fit-content;
+  width: 60%;
+ 
+  /* border: 2px solid white;
+  border-radius: 15px; */
+}
+.bluePhotoImg{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  opacity: 60%;
+  transition: all 0.3s ease;
+}
+.bluePhotoImg img{
+  border-radius:15px ;
+}
+.bluePhotoImg:hover{
+  transform: scale(1.01);
+}
+.playerIconContainer:hover{
+  transform: scale(1.1);
+}
+
+.showSoundsButton{
+  border: 3px solid none;
+  position: relative;
+  width: 5vw;
+  height: 4vh;
+  border: none;
+  background-color: transparent;
+  z-index: 100;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: all 0.5s ease;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif', 'sans-serif';
+  font-size: 1.2rem;
+  cursor: pointer;
+  
+}
+.showOponentButton{
+ 
+  position: relative;
+  width: 5vw;
+  height: 4vh;
+  
+  background-color: transparent;
+  z-index: 100;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: all 0.5s ease;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif', 'sans-serif';
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.showSoundsContainer:hover{
+  transform: scale(1.1);
+}
+
+.showPlayersButton{
+  border: none;
+  position: relative;
+  width: 7vw;
+  height: 4vh;
+  
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-weight: 900;
+  z-index: 100;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  color: rgb(255, 255, 255);
+  font-family: 'kollektif', 'sans-serif';
+  font-size: 1.2rem;
+  cursor: pointer;
+  
+}
+.showOponent:hover{
+  transform: scale(1.1);
+}
+.x{
+  position: absolute;
+  
+  top: 0px;
+  z-index: 1000000;
+  right: 15px;
+  color: white;
+  font-size: 3vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.x:hover{
+  color: red;
+}
+.stopka{
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  
+  
+  
+  border-top: 2px solid rgb(255, 255, 255);
+  
+}
+.stopkaContainer{
+  position: relative;
+ 
+  display: flex;
+  width:fit-content;
+  justify-content: center;
+  flex-direction: column;
+  place-items: center;
+  gap: 20px;
+  margin-right: 20px;
+  
+  
+}
+.leaderboardButton{
+  letter-spacing: 10px;
+  color: white;
+  height: fit-content;
+  font-family: 'kollektif';
+  font-size: 1vw;
+ 
+  transition: all 0.3s ease;
+  
+  
+  
+ 
+  cursor: pointer;
+}
+.rules{
+  
+  position: relative;
+  display: flex;
+  font-size: 1vw;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 10px;
+  
+ 
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'kollektif', 'sans-serif';
+  
+  
+  
+  
+  
+
+}
+.stopka h1{
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  font-weight: lighter;
+  font-size: 0.8vw;
+  margin-left: 10px;
+  color: white;
+  font-family:  'Kollektif', 'sans-serif';
+  letter-spacing: 2px;
+}
+
+@media (max-width: 1700px){
+  .choosePlayer{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000000;
+    width: 40vw;
+    
+  }
+  .bluePhotoContainer{
+    width: 70%;
+  }
+  
+  .partykaText{
+    height: 7vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .grubbaText{
+    height: 7vh;
+  }
+}
+@media (max-width: 768px) {
+  .welcomeScreen{
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .grubbaButton,.partykaButton,.currentUserButton{
+    left: 70%;
+    font-size: 3vw
+  }
+  .andrzejGrubba, .nataliaPartyka{
+    width: 50vw;
+  }
+  .currentUser{
+    width: 50vw;
+    background-size: 10vw;
+    background-position-x: 50%;
+    background-position-y:50% ;
+  }
+  .bluePhotoContainer{
+    width: 95vw;
+    height: fit-content;
+  }
+  .stopka{
+    height:7vh;
+    padding: 5px;
+  }
+  .stopka h1{
+    font-size: 2vw;
+  }
+  
+  .settings{
+    height: 1.5vh;
+    
+  }
+  .settingsButton{
+    font-size: 2vw;
+  }
+  .welcomeScreen a.game{
+    width: 40vw;
+    height: 0.5vh;
+    font-size: 4vw;
+    padding: 20px;
+    border: 2px solid white;
+    letter-spacing: 2px;
+  }
+  .oponentContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    border-radius: 20px;
+    width: 75vw;
+    background-color: transparent;
+    height: 45vh;
+    border: none;
+  }
+  .HardPlayer{
+    border: 3px solid white;
+    border-radius: 15px;
+    background-color: blue;
+    width: 100%;
+  }
+  .HardButton{
+    width: 20vw;
+    height: 5vh;
+    font-size: 2.5vw;
+  }
+  .EasyButton{
+    width: 20vw;
+    height: 5vh;
+    font-size: 2.5vw;
+  }
+  .NormalButton{
+    width: 20vw;
+    height: 5vh;
+    font-size: 2.5vw;
+  }
+  
+  .welcomeScreen a.rules {
+    
+    width: fit-content;
+    height: fit-content;
+    
+    font-size: 2vw;
+    
+    letter-spacing: 2px;
+  }
+  .leaderboardButton{
+   width: fit-content;
+   height: fit-content;
+   
+   font-size: 2vw;
+   letter-spacing: 2px;
+}
+
+
+  .container {
+    height: fit-content;
+    
+    bottom: 20vh;
+    
+    gap: 0px;
+    
+    
+  }
+  .containerForTwo{
+    width: 20vw;
+    gap: 20px;
+  }
+  .showPlayersButton, .showSoundsButton, .showOponentButton{
+    width: 20vw;
+    height: 5vh;
+  }
+  .choosePlayer{
+    width: 80vw;
+  }
+  .partykaText{
+    font-size: 4vw;  }
+  .grubbaText{
+    font-size: 4vw;
+
+  }
+  .currentUserText{
+    font-size: 4vw;
+  }
+  .currentUserTextInput{
+    width: 30vw;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .currentUserTextInput::placeholder{
+    font-size: 2vw;
+  }
+  
+
+  
+  .musicButtons{
+    top: auto;
+    right: 0px;
+    bottom: 20px;
+
+  }
+ 
+.musicButtons input[type="radio"] {
+    width: 15vw;  
+    height: 15vw;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .showPlayersButton{
+    font-size: 0.9rem;
+  }
+  .showSoundsButton{
+    font-size: 0.9rem;
+  }
+  .showOponentButton{
+    font-size: 0.9rem;
+  }
+  
+  
+  
+  .logo{
+    top: 20px;
+    max-width: 100px;   /* or whatever */
+  height: auto;
+  }
+
+ 
+  .locked{
+    width: 20vw;
+    border-radius: 10px;
+    height: 10vh;
+  }
+
+  .x{
+    font-size: 7vw;
+  }
+  @media(max-width:600px) {
+    .logo{
+      max-width: 80px;   /* or whatever */
+  height: auto;
+    }
+  }
+  @media (max-width :500px){
+    .oponentContainer{
+    width: 80vw;
+    height: 50vh;
+    
+  }
+  .grubbaButton,.partykaButton,.currentUserButton{
+    left: 68%;
+    height: 4vh;
+    width: 25vw;
+  }
+  .currentUserTextInput::placeholder{
+    font-size: 3vw;
+  }
+  .logo{
+    width: 20vw;
+    height: 8vh;
+    left: 20px;
+  }
+  .containerForTwo{
+    width: 30vw;
+  }
+  .container{
+    bottom: 35vh;
+  }
+  .welcomeScreen a.game{
+    height: 0.1vw;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .HardPlayer{
+    border: 3px solid white;
+  }
+  .settingsButton{
+    font-size: 3vw;
+  }
+  .welcomeScreen a.rules {
+    
+    font-size: 3vw;
+  }
+  .leaderboardButton{
+   font-size: 3vw;
+}
+  }
+  @media(max-width : 450px){
+    .showPlayersButton, .showSoundsButton, .showOponentButton{
+      width: 25vw;
+      font-size: 3vw;
+    }
+    .currentUserTextInput{
+      height: 3vh;
+      border-radius: 5px;
+    }
+    .settingsButton{
+      font-style: 7vw;
+    }
+    .currentUser{
+      background-size: 15vw;
+    }
+ 
+  .x{
+    font-size: 8vw;
+  }
+  
+  .welcomeScreen a.game{
+      width: 50vw;
+  }
+  .container{
+    bottom: 35%;
+    position: fixed;
+    left:50%;
+  }
+  .logo{
+    max-width: 70px;   /* or whatever */
+  height: auto;
+  }
+  }
+  /* @media(max-width:350px){
+
+  } */
+  
+}
+@media (orientation: landscape) and (max-width: 850px) {
+  
+  .stopka{
+    
+    height: 12vh;
+  }
+  .leaderboardButton{
+    font-size: 1.5vw;
+  }
+  .stopkaContainer a.rules{
+    font-size: 1.5vw;
+  }
+  .stopkaContainer{
+    gap: 10px;
+    
+  }
+  .stopka h1{
+    
+    font-size: 1vw;
+  }
+  .settings{
+    height: 4vh;
+    width: 18vw;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+  .settingsButton{
+    font-size: 1.8vw;
+    font-weight: bolder;
+  }
+  /* .settings svg{
+    width: 1px;
+    
+  } */
+  .welcomeScreen a.game{
+    position: fixed;
+    top: -50%;
+    height: 0.1vh;
+    border-radius: 10px;
+    font-size: 3vw;
+    width: 30vw;
+  }
+  .bluePhotoContainer{
+    
+    object-fit: cover;
+    width: 55%;
+    height: 70%;
+  }
+  .bluePhotoImg{
+    
+    object-fit: cover;
+    
+  }
+  .logo{
+    max-width: 75px;   /* or whatever */
+  height: auto;
+  }
+  .containerForTwo{
+    width: 18vw;
+    height: 45vh;
+    position: fixed;
+    padding: 10px;
+    right: 5px;
+    top: 65px;
+    
+  }
+  
+  .playerIconContainer{
+    padding-bottom: 2px;
+    width: 100%;
+    font-size: 1vw;
+    height: 20%;
+    
+  }
+  .showSoundsContainer, .showOponent{
+    padding-bottom: 2px;
+    width: 100%;
+    font-size: 1vw;
+    height: 20%;
+    
+  }
+  .showPlayersButton, .showSoundsButton, .showOponentButton{
+    font-size: 1.5vw;
+    width: 15vw;
+    height: 4vh;
+  }
+  .musicButtons{
+    
+    position: relative;
+    margin-bottom: -40px;
+    display: flex;
+    height: 14vh;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+  }
+  .chillcontainer, .bitcontainer, .rockcontainer, .pingcontainer{
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .musicButtons input[type="radio"] {
+    width: 8vh;  
+    height: 8vh;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .choosePlayer{
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    
+  }
+  .HeroSelection{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    gap: 10px;
+  }
+  .partykaContainer, .grubbaContainer, .currentUserContainer{
+    
+    margin: 0;
+    padding: 7px;
+    height: 33%;
+    gap: 0px;
+
+  }
+  .nataliaPartyka, .andrzejGrubba, .currentUser{
+    height: 100%;
+    width: 15vw;
+  }
+  .currentUser{
+    background-size: 40%;
+  }
+  .partykaButton, .grubbaButton {
+    width: 30vw;
+    height: 10vh;
+    font-size: 2.5vw;
+    left: 58%;
+  }
+  .currentUserButton{
+    position: absolute;
+    width: 30vw;
+    height: 10vh;
+    font-size: 2.5vw;
+    left: 58%;
+    top: 73px;
+  }
+  .currentUserText{
+    
+    width: 100%;
+    height: 50%;
+  }
+  .currentUserTextInput{
+    position: relative;
+    height: 90%;
+    font-size: 3.2vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+  }
+  .currentUserTextInput::placeholder{
+    
+  }
+  .oponentContainer{
+    position: fixed;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%,-50%);
+    height: 85%;
+    width: 95%;
+    border-radius: 5px;
+    padding: 10px;
+    
+  }
+  .HardPlayer{
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    
+  }
+  .HardPlayerLeft{
+    
+    
+  }
+  .HardPlayerImg, .NormalPlayerImg, .EasyPlayerImg{
+    width: 20%;
+    height: 140%;
+  }
+  .HardButton, .NormalButton, .EasyButton{
+    width: 40vw;
+    height: 20vh;
+    font-size: 3vw;
+    left: 65%;
+  }
+}
+
+
+

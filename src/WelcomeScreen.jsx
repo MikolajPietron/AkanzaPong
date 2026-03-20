@@ -3,6 +3,7 @@ import React, { useState, useRef, use } from 'react';
 import './WelcomeScreen.css';
 import { useNavigate } from 'react-router-dom';
 import Modal from './Modal.jsx';
+import Footer from './Footer.jsx';
 import BitSong from './assets/gameSong.mp3';
 import ChillSong from './assets/ChillLofiSong.mp3';
 import RockSong from './assets/RockSong.mp3';
@@ -229,26 +230,8 @@ const toggleSettings = () =>{
           <p>5. Have fun!</p>
         </Modal>
       </div>
-      <div className='stopka'>
-        <h1>DEVELOPED BY AKANZA</h1>
-        <div className='stopkaContainer'>
-              <a className='leaderboardButton' onClick={() =>navigation("/leaderboard")}>RANKING</a>
-          
-
-        <a
-          href="#"
-          className='rules'
-          onClick={(e) => {
-            e.preventDefault();
-            setIsModalOpen(true);
-          }}
-        >
-           RULES
-        </a>
-        </div>
-          
-      </div>
     </div>
+    <Footer onRulesClick={() => setIsModalOpen(true)} />
     {isShown && (
   <div className="modalOverlay" onClick={closePlayerModal}>
     <div
@@ -256,39 +239,42 @@ const toggleSettings = () =>{
       onClick={(e) => e.stopPropagation()}
     >
       <span className="x" onClick={closePlayerModal}>&times;</span>
+      <h2 className="playerModalTitle">Choose Your Player</h2>
 
       <div className="HeroSelection">
-        <div className="partykaContainer">
-          <button className="nataliaPartyka" />
-          <div className="partykaText">Natalia Partyka</div>
-          <button
-            className="partykaButton"
-            onClick={() => {
-              setSelectedPlayer("Partyka");
-              togglePlayersModal();
-            }}
-          >
-            SELECT
-          </button>
+        <div
+          className={`playerCard ${selectedPlayer === 'Partyka' ? 'playerCardActive' : ''}`}
+          onClick={() => {
+            setSelectedPlayer("Partyka");
+            togglePlayersModal();
+          }}
+        >
+          <div className="playerCardImg nataliaPartyka" />
+          <div className="playerCardInfo">
+            <span className="playerCardName">Natalia Partyka</span>
+            <span className="playerCardRole">Paralympic Champion</span>
+          </div>
         </div>
 
-        <div className="grubbaContainer">
-          <button className="andrzejGrubba" />
-          <div className="grubbaText">Andrzej Grubba</div>
-          <button
-            className="grubbaButton"
-            onClick={() => {
-              setSelectedPlayer("Grubba");
-              togglePlayersModal();
-            }}
-          >
-            SELECT
-          </button>
+        <div
+          className={`playerCard ${selectedPlayer === 'Grubba' ? 'playerCardActive' : ''}`}
+          onClick={() => {
+            setSelectedPlayer("Grubba");
+            togglePlayersModal();
+          }}
+        >
+          <div className="playerCardImg andrzejGrubba" />
+          <div className="playerCardInfo">
+            <span className="playerCardName">Andrzej Grubba</span>
+            <span className="playerCardRole">Table Tennis Legend</span>
+          </div>
         </div>
 
-        <div className="currentUserContainer">
-          <button className="currentUser" />
-          <div className="currentUserText">
+        <div
+          className={`playerCard playerCardCustom ${selectedPlayer === 'currentUser' ? 'playerCardActive' : ''}`}
+        >
+          <div className="playerCardImg currentUser" />
+          <div className="playerCardInfo">
             <input
               type="text"
               className="currentUserTextInput"
@@ -299,18 +285,18 @@ const toggleSettings = () =>{
               placeholder="Your name"
               onChange={(e) => setCurrnetUserName(e.target.value)}
             />
+            <button
+              className="playerCardSelectBtn"
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedPlayer("currentUser");
+                togglePlayersModal();
+              }}
+            >
+              PLAY
+            </button>
           </div>
-          <button
-            className="currentUserButton"
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              setSelectedPlayer("currentUser");
-              togglePlayersModal();
-            }}
-          >
-            SELECT
-          </button>
         </div>
       </div>
     </div>

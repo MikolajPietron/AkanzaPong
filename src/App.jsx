@@ -21,7 +21,7 @@
   import HardAi from "./assets/HardPlayer.png";
   import AtsLogo from './assets/atsAkanzaLogoBlue.png'
   import AtsLogoGame from "./assets/AtsAkanza.svg"
-  import { mdiPlay, mdiPause, mdiVolumeOff } from '@mdi/js';
+  import { mdiPlay, mdiPause, mdiVolumeOff, mdiVolumeHigh, mdiTrophy, mdiEmoticonSadOutline } from '@mdi/js';
   import { mdiGuitarElectric, mdiNintendoGameBoy, mdiSofaSingle, mdiTennisBall } from "@mdi/js";
 
   function App() {
@@ -623,7 +623,7 @@ const handleUnpause = () => {
               <div className='pauseButtonContainer'>
                 
 
-                <button className='muteButton' onClick={() => setIsMuted(prev => !prev)}><Icon path={mdiVolumeOff}  className='muteicon'/></button>
+                <button className='muteButton' onClick={() => setIsMuted(prev => !prev)}><Icon path={isMuted ? mdiVolumeOff : mdiVolumeHigh}  className='muteicon'/></button>
 
                 
               <button className='pauseButton' onClick={() =>{
@@ -823,14 +823,27 @@ const handleUnpause = () => {
             
 
           {gameOver && (
-            <div className="winContainer">
-              <div className='winnerText'>
-              {Player1Points >= 10 ? 'Przegrana!' : 'Wygrana!!!'}
+            <div className="winOverlay">
+              <div className="winContent">
+                <Icon 
+                  path={Player1Points >= 10 ? mdiEmoticonSadOutline : mdiTrophy} 
+                  size={3.5} 
+                  color="white" 
+                  className={`winIcon ${Player1Points >= 10 ? 'defeat' : 'victory'}`}
+                />
+                <h1 className="winTitle">
+                  {Player1Points >= 10 ? 'DEFEAT' : 'VICTORY'}
+                </h1>
+                <div className="winScore">
+                  <span className="winScorePlayer">{Player2Points}</span>
+                  <span className="winScoreDivider">:</span>
+                  <span className="winScoreAi">{Player1Points}</span>
+                </div>
+                <div className="winActions">
+                  <button className="winBtnPrimary" onClick={() => navigate('/')}>Play Again</button>
+                  <button className="winBtnSecondary" onClick={handleSaveGame}>Save Score</button>
+                </div>
               </div>
-              <button className='playAgain' onClick={() => navigate('/')}>Play again!</button>
-              <button className='zapiszWynik'  onClick={handleSaveGame}>Save your score!</button>
-              
-
             </div>
         )}
 

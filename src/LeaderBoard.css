@@ -1,166 +1,292 @@
+@font-face {
+  font-family: 'kollektif';
+  src: url('assets/fonts/Kollektif-Bold.ttf') format(truetype);
+  font-weight: bold;
+  font-style: normal;
+}
 
-.leaderBoardContainer{
-    position: fixed;
-    display: flex;
-    height: 90vh;
-    width: 40vw;
-    border-radius: 20px ;
-    border: 4px solid rgb(255, 255, 255);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 100000;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 20px;
-}
-.tablicaWynikowContainer{
-    position: absolute;
-    display: flex;
-    top:20px;
-    left: 50%;
-    transform: translate(-50%,0);
-    width: 70%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 6vh;
-    border: 4px solid rgb(255, 255, 255);
-    background-color: white;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.2vw;
-    font-family: 'kollektif';
-    
-}
-.closeButton{
-    position: absolute;
-    font-size: 3vw;
-    color: red;
-    background-color: transparent;
-    border: 0px solid none;
-    z-index: 10000000;
-    top: 5px;
-    right: 20px;
-    cursor: pointer;
-}
-.tablicaWynikow{
-    color: blue;
-    text-align: center;
-    font-weight: 900;
-}
-.leaderList{
-     position: relative;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 15px;
-  color: white;
-  /* Change 'height' to 'max-height' */
-  max-height: 80%; /* This means it will take up to 80% of its parent's height */
-  width: 90%;
-  background-color: white;
-  margin-bottom: 10px;
+.leaderBoardPage {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(145deg, #020b6b 0%, #0517C9 40%, #1a3aef 100%);
   display: flex;
-  gap: 10px; /* Increased gap for better spacing, adjust as needed */
-  padding: 20px;
-  flex-direction: column;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* Add flex-shrink to prevent it from growing beyond max-height if parent is flex item */
-  flex-shrink: 0; 
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
+
+.leaderBoardContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(600px, 90vw);
+  max-height: 85vh;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  padding: 32px 28px 24px;
+  animation: leaderFadeIn 0.5s ease;
+}
+
+@keyframes leaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-3px);
+}
+
+.leaderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.tablicaWynikow {
+  font-family: 'kollektif', sans-serif;
+  color: white;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.leaderListHeader {
+  display: grid;
+  grid-template-columns: 50px 1fr 90px 90px 100px;
+  gap: 8px;
+  padding: 10px 16px;
+  font-family: 'kollektif', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.leaderList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 55vh;
+  padding-right: 4px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.leaderList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaderList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.leaderList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.leaderList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.leaderEntry {
+  display: grid;
+  grid-template-columns: 50px 1fr 90px 90px 100px;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+}
+
+.leaderEntry:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.leaderEntry span {
+  font-family: 'kollektif', sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+}
+
+.position {
+  font-weight: 800;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.playerNamee {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score {
+  text-align: right;
+  font-weight: 700;
+}
+
+.diff {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.date {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-size: clamp(0.6rem, 1vw, 0.75rem) !important;
+}
+
+/* ===== PODIUM STYLES ===== */
 .leaderEntry.gold {
-  border: none;
-    background-color: #c0a300; /* gold */
-    color: black;
-    border: none;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.leaderEntry.gold .position {
+  color: #FFD700 !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.leaderEntry.gold .playerNamee {
+  color: #FFD700 !important;
 }
 
 .leaderEntry.silver {
-    background-color: #a5a5a5; /* silver */
-    color: black;
-    border: none;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.15) 0%, rgba(192, 192, 192, 0.05) 100%);
+  border: 1px solid rgba(192, 192, 192, 0.3);
+}
+
+.leaderEntry.silver .position {
+  color: #C0C0C0 !important;
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+}
+
+.leaderEntry.silver .playerNamee {
+  color: #C0C0C0 !important;
 }
 
 .leaderEntry.bronze {
-    background-color: #9c4e00; /* bronze */
-    color: rgb(0, 0, 0);
-    border: none;
-}
-.leaderEntry.bronze span, .leaderEntry.silver span, .leaderEntry.gold span{
-  color: black;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.15) 0%, rgba(205, 127, 50, 0.05) 100%);
+  border: 1px solid rgba(205, 127, 50, 0.3);
 }
 
-.leaderEntry{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    height: 5vh;
-    width: 97%;
-    border: 2px solid blue;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: blue;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 30px;
-}
-.leaderEntry span{
-    font-family: 'kollektif';
-    color: white;
-    font-size: 1.6vw;
-}
-/* The scrollbar itself */
-::-webkit-scrollbar {
-  width: 12px; /* For vertical scrollbars */
-  height: 12px; /* For horizontal scrollbars */
+.leaderEntry.bronze .position {
+  color: #CD7F32 !important;
+  text-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+.leaderEntry.bronze .playerNamee {
+  color: #CD7F32 !important;
 }
 
-/* Handle (the draggable part) */
-::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 5px;
+.emptyState {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'kollektif', sans-serif;
+  font-size: 1rem;
+  padding: 48px 0;
+  letter-spacing: 1px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .leaderBoardContainer {
+    width: 95vw;
+    padding: 24px 16px 16px;
+  }
+
+  .leaderListHeader {
+    grid-template-columns: 36px 1fr 70px 70px;
+    font-size: 0.6rem;
+  }
+
+  .leaderEntry {
+    grid-template-columns: 36px 1fr 70px 70px;
+    padding: 10px 12px;
+  }
+
+  .leaderListHeader .colDate,
+  .leaderEntry .date {
+    display: none;
+  }
+
+  .leaderEntry span {
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+  }
+
+  .tablicaWynikow {
+    letter-spacing: 2px;
+  }
 }
 
-/* Corner of the scrollbar (where vertical and horizontal meet) */
-::-webkit-scrollbar-corner {
-  background: #f1f1f1;
+@media (max-width: 450px) {
+  .leaderBoardPage {
+    padding: 20px 10px;
+  }
+
+  .leaderBoardContainer {
+    padding: 20px 12px 12px;
+    border-radius: 16px;
+  }
+
+  .leaderListHeader {
+    grid-template-columns: 30px 1fr 60px;
+  }
+
+  .leaderEntry {
+    grid-template-columns: 30px 1fr 60px;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .leaderListHeader .colDiff,
+  .leaderEntry .diff,
+  .leaderListHeader .colDate,
+  .leaderEntry .date {
+    display: none;
+  }
 }
 
-/* Buttons at the end of the scrollbar track (if present) */
-::-webkit-scrollbar-button {
-  /* You can style these if they appear */
-}
-@media (max-width : 768px){
-    .leaderBoardContainer{
-        width: 90vw;
-        height: 90vh;
-    }
-    .closeButton{
-        font-size: 10vw;
-    }
-    .leaderList{
-        width: 80%;
-    }
-    .leaderEntry span{
-        font-size: 3vw;
-    }
-    .tablicaWynikowContainer{
-        font-size: 3vw;
-    }
-
-
-}
